@@ -4,3 +4,6 @@
 [submodule "chef"]
 	path = chef
 	url = https://github.com/databus23/football-worldcup-simulator-chef.git
+[submodule "simulation/json-spirit"]
+	path = simulation/json-spirit
+	url = https://github.com/sirikata/json-spirit.git
