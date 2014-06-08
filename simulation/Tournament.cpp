@@ -19,7 +19,7 @@ void Tournament::init()
 	auto &cluster = clusterTeamResults["all"];
 	for (auto &team : simulation->teams)
 	{
-		cluster.emplace(std::make_pair(team.id, TeamResult()));
+		cluster.insert(std::make_pair(team.id, TeamResult()));
 	}
 }
 

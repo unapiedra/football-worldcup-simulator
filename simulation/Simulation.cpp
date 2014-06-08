@@ -165,7 +165,7 @@ void Simulation::execute()
 			for (auto &team : teams)
 			{
 				if (!cluster.count(team.id))
-					cluster.emplace(std::make_pair(team.id, TeamResult(clusterToMerge.second[team.id])));
+					cluster.insert(std::make_pair(team.id, TeamResult(clusterToMerge.second[team.id])));
 				else
 					cluster[team.id].merge(clusterToMerge.second[team.id]);
 			}

@@ -15,7 +15,7 @@ void MatchResultStatisticsList::addMatch(const MatchResult &match)
 	std::pair<int, int> teamPair = std::make_pair(teamIDOne, teamIDTwo);
 	if (!results.count(teamPair))
 	{
-		results.emplace(teamPair, MatchResultStatistics(teamIDOne, teamIDTwo));
+		results.insert(std::pair<std::pair<int, int>, MatchResultStatistics>(teamPair, MatchResultStatistics(teamIDOne, teamIDTwo)));
 		assert(match.bofRound > 0);
 		this->bofRound = match.bofRound;
 		this->gameInRound = match.gameInRound;
@@ -30,7 +30,7 @@ void MatchResultStatisticsList::merge(MatchResultStatisticsList &other)
 	{
 		const std::pair<int, int> &teamPair = result.first;
 		if (!results.count(teamPair))
-			results.emplace(teamPair, MatchResultStatistics(result.second));
+			results.insert(std::pair<std::pair<int,int>, MatchResultStatistics>(teamPair, MatchResultStatistics(result.second)));
 		else
 			results[teamPair].merge(result.second);
 	}
